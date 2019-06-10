@@ -1,0 +1,57 @@
+$navbarHeight: 80px;
+$mobiNavbarHeight: 50px;
+$footerHeight: 50px;
+$navbarHeightPlusOne: 81px;
+$sidebarWidth: 300px;
+// font-size
+$default-size: 14px;
+$size12: 12px;
+$size14: 14px;
+$size16: 16px;
+$size18: 18px;
+// font-weight
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+// color
+$primary: #0f0f0f !default;
+$secondary: #FFE869 !default;
+$white: #fff !default;
+$black:#0f0f0f !default;
+$bg-gray: #F2F2F2 !default;
+$gray-100: #f7f8fa !default;
+$gray-300: #dee2e6 !default;
+$gray-600: #6c757d !default;
+$gray-900: #212529 !default;
+$text-muted: #808080 !default;
+
+// border
+$border-radius: 0.25rem !default;
+$border-color: $gray-300 !default;
+$font-size-base: 1rem !default;
+$line-height-base: 1.5 !default;
+// Spacing
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: (
+      $spacer * 0.25
+    ),
+    2: (
+      $spacer * 0.5
+    ),
+    3: $spacer,
+    4: (
+      $spacer * 1.5
+    ),
+    5: (
+      $spacer * 3
+    )
+  ),
+  $spacers
+);
+// position
+$zindex-sticky: 1020 !default;
+$zindex-fixed: 1030 !default;

@@ -1,0 +1,10 @@
+@import "variables";
+@import "reboot";
+@import "mixins";
+@import "utilities";
+
+body {
+    // PingFang SC, 加在微软雅黑前面。
+    font-family: Arial,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+    // letter-spacing: 1px;
+}

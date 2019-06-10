@@ -1,0 +1,96 @@
+@mixin xs-none() {
+    display: none;
+}
+
+// 文本超出显示 "..."
+@mixin text-truncate() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// 设置尺寸大小
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin resizable($direction) {
+    overflow: auto; // Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+    resize: $direction; // Options: horizontal, vertical, both
+}
+
+@mixin list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+@mixin float-left {
+    float: left !important;
+}
+
+@mixin float-right {
+    float: right !important;
+}
+
+@mixin float-none {
+    float: none !important;
+}
+
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+
+@mixin full-page() {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@mixin middle-center() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+;
+@mixin horizon-center() {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+;
+@mixin align-center() {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+;
+@mixin img-fluid {
+    // Part 1: Set a maximum relative to the parent
+    max-width: 100%; // Part 2: Override the height to auto, otherwise images will be stretched
+    // when setting a width and height attribute on the img element.
+    height: auto;
+}
+
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+    background-image: url($file-1x); // Autoprefixer takes care of adding -webkit-min-device-pixel-ratio and -o-min-device-pixel-ratio,
+    // but doesn't convert dppx=>dpi.
+    // There's no such thing as unprefixed min-device-pixel-ratio since it's nonstandard.
+    // Compatibility info: https://caniuse.com/#feat=css-media-resolution
+    @media only screen and (min-resolution: 192dpi), // IE9-11 don't support dppx
+    only screen and (min-resolution: 2dppx) {
+        // Standardized
+        background-image: url($file-2x);
+        background-size: $width-1x $height-1x;
+    }
+}

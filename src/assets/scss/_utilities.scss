@@ -1,0 +1,110 @@
+//
+// 此文件请勿格式化
+//
+
+.xs-none{@include xs-none;}
+
+.text-justify  { text-align: justify !important; }
+.text-nowrap   { white-space: nowrap !important; }
+.text-truncate { @include text-truncate; }
+
+.text-left   { text-align: left !important; }
+.text-right  { text-align: right !important; }
+.text-center { text-align: center !important; }
+
+.align-baseline    { vertical-align: baseline !important; } // Browser default
+.align-top         { vertical-align: top !important; }
+.align-middle      { vertical-align: middle !important; }
+.align-bottom      { vertical-align: bottom !important; }
+.align-text-bottom { vertical-align: text-bottom !important; }
+.align-text-top    { vertical-align: text-top !important; }
+
+.font-weight-light  { font-weight: $font-weight-light !important; }
+.font-weight-normal { font-weight: $font-weight-normal !important; }
+.font-weight-bold   { font-weight: $font-weight-bold !important; }
+.font-italic        { font-style: italic !important; }
+
+.text-primary { color: $primary !important; }
+.text-white { color: $white !important; }
+.text-dark { color: $black !important; }
+.text-muted { color: $text-muted !important; }
+
+.bg-primary { background-color: $primary !important; }
+.bg-white {background-color: $white !important;}
+.bg-light {background-color: $gray-100 !important;}
+.bg-secondary {background-color: $gray-600 !important;}
+.bg-transparent {background-color: transparent !important;}
+
+.d-inline-block{display:inline-block !important;}
+
+.mw-100 { max-width: 100% !important; }
+.mh-100 { max-height: 100% !important; }
+.w-100 { width: 100% !important; }
+.h-100 { height: 100% !important; }
+
+.list-unstyled {padding-left: 0;list-style: none;}
+
+.float-left  { @include float-left; }
+.float-right { @include float-right; }
+.float-none  { @include float-none; }
+
+.clearfix { @include clearfix(); }
+
+.border          { border: 1px solid $border-color !important; }
+.border-top      { border-top: 1px solid $border-color !important; }
+.border-right    { border-right: 1px solid $border-color !important; }
+.border-bottom   { border-bottom: 1px solid $border-color !important; }
+.border-left     { border-left: 1px solid $border-color !important; }
+.border-0        { border: 0 !important; }
+.border-top-0    { border-top: 0 !important; }
+.border-right-0  { border-right: 0 !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-left-0   { border-left: 0 !important; }
+
+.rounded         { border-radius: $border-radius !important; }
+.rounded-top     { border-top-left-radius: $border-radius !important; border-top-right-radius: $border-radius !important; }
+.rounded-right   { border-top-right-radius: $border-radius !important; border-bottom-right-radius: $border-radius !important; }
+.rounded-bottom  { border-bottom-right-radius: $border-radius !important; border-bottom-left-radius: $border-radius !important; }
+.rounded-left    { border-top-left-radius: $border-radius !important; border-bottom-left-radius: $border-radius !important; }
+.rounded-circle  { border-radius: 50% !important; }
+.rounded-0       { border-radius: 0 !important; }
+
+// Margin,Padding
+@each $prop,$abbrev in (margin: m, padding: p) {
+    @each $size,
+    $length in $spacers {
+        .#{$abbrev}-#{$size} {
+            #{$prop}: $length !important;
+        }
+        .#{$abbrev}t-#{$size},
+        .#{$abbrev}y-#{$size} {
+            #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r-#{$size},
+        .#{$abbrev}x-#{$size} {
+            #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b-#{$size},
+        .#{$abbrev}y-#{$size} {
+            #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l-#{$size},
+        .#{$abbrev}x-#{$size} {
+            #{$prop}-left: $length !important;
+        }
+    }
+}
+
+// Position
+$positions: static, relative, absolute, fixed, sticky;
+@each $position in $positions {
+  .position-#{$position} { position: $position !important; }
+}
+.fixed-top {position: fixed;top: 0;right: 0;left: 0;z-index: $zindex-fixed;}
+.fixed-bottom {position: fixed;right: 0;bottom: 0;left: 0;z-index: $zindex-fixed;}
+.sticky-top {@supports (position: sticky) {position: sticky;top: 0;z-index: $zindex-sticky;}}
+
+.full-page{@include full-page()}
+.middle-center{@include middle-center()};
+.horizon-center{@include horizon-center()};
+.align-center{@include align-center()};
